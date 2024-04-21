@@ -1,183 +1,208 @@
 @charset "UTF-8";
 
-.css-compiler {
-    min-width: 500px;
-    min-height: 500px;
+.sass-compiler {
+    margin: 0 10px 20px;
     font-family: 'Noto Sans JP', "Hiragino Kaku Gothic ProN", "Yu Gothic", "メイリオ", sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #fff;
     line-height: 1;
     text-align: left;
-    background: #050000;
-    &-title {
+    background: rgb(32, 33, 36);
+    &-cont {
+        display: flex;
+        justify-content: space-between;
+    }
+    &-box {
+        width: 380px;
+        .CodeMirror {
+            max-width: 380px;
+        }
+        &:not(:last-of-type) {
+            margin-right: 20px;
+        }
+        &.css {
+            .sass-compiler {
+                &-foot {
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+    &-head {
         margin-bottom: 10px;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    &-foot {
+        margin-top: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &-title {
+        margin: 0;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: .025em;
     }
-    &-textarea {
-        &.scss {
-            height: 500px;
-        }
-        &.css {
-            height: 200px;
+    &-note {
+        margin: 0;
+        font-size: 11px;
+        color: #eee;
+        line-height: 1;
+        text-align: right;
+    }
+    &-button {
+        margin: 0 10px 0 0;
+        padding: 5px 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #007bff;
+        border: 0;
+        border-radius: 3px;
+        cursor: pointer;
+        &:hover {
+            background-color: #0056b3;
         }
     }
-}
-
-.contents {
-    width: 30em;
-    height: 25em;
-    line-height: 1.5;
-    padding: 0 5px;
-    border-radius: 4px;
-    border: none;
-    box-shadow: 0 0 0 1px #ccc inset;
-    -webkit-appearance: none;
-    font-size: 1.5em;
-}
-
-.contents:focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
-}
-
-.msg {
-    margin: -10px 0 0 15px;
-    color: #b56969;
-    display: flex;
-    justify-content: space-between;
-}
-
-a {
-  color: #808080;
-  &:hover {
-    color: #404040;
-  }
-}
-
-.font-size {
-  margin-left: 15px;
-	font-size: 1em;
-}
-
-.gg-software-download {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  transform: scale(var(--ggs,1));
-  width: 16px;
-  height: 6px;
-  border: 2px solid;
-  border-top: 0;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  float: right;
-  margin: 8px 10px 15px 0;
-}
-
-.gg-software-download::after {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  transform: rotate(-45deg);
-  left: 2px;
-  bottom: 4px
-}
-
-.gg-software-download::before {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  border-radius: 3px;
-  width: 2px;
-  height: 10px;
-  background: currentColor;
-  left: 5px;
-  bottom: 5px
-}
-
-.gg-copy {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  transform: scale(var(--ggs,1));
-  width: 14px;
-  height: 18px;
-  border: 2px solid;
-  margin-left: -5px;
-  margin-top: -4px
-}
-
-.gg-copy::after,
-.gg-copy::before {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute
-}
-
-.gg-copy::before {
-  background:
-  linear-gradient( to left,
-  currentColor 5px, transparent 0)
-  no-repeat right top/5px 2px,
-  linear-gradient( to left,
-  currentColor 5px, transparent 0)
-  no-repeat left bottom/ 2px 5px;
-  box-shadow: inset -4px -4px 0 -2px;
-  bottom: -6px;
-  right: -6px;
-  width: 14px;
-  height: 18px
-}
-
-.gg-copy::after {
-  width: 6px;
-  height: 2px;
-  background: currentColor;
-  left: 2px;
-  top: 2px;
-  box-shadow: 0 4px 0,0 8px 0
-}
-
-.round_btn {
-display: block;
-position: relative;
-width: 15px;
-height: 15px;
-border: 2px solid #333;
-border-radius: 50%;
-background: #ffe4e1;
-transition: all 1s; /* アニメーション設定 */
-margin: 5px 0 -15px 10px;
-}
-
-.round_btn::before, .round_btn::after {
-content: "";
-position: absolute;
-top: 50%;
-left: 50%;
-width: 2px;
-height: 7px;
-background: #333;
-}
-
-.round_btn::before {
-transform: translate(-50%,-50%) rotate(45deg);
-}
-
-.round_btn::after {
-transform: translate(-50%,-50%) rotate(-45deg);
-}
-
-.round_btn:hover { /* マウスオーバー時のスタイル */
-  transform: rotate(360deg);
+    &-upload {
+        &-input {
+            display: none;
+        }
+        &-button {
+            margin: 0;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+            background-color: #333;
+            border: 0;
+            border-radius: 3px;
+            box-sizing: border-box;
+            &::placeholder {
+                color: #777;
+            }
+        }
+    }
+    &-copy {
+        margin: -2px 15px 0 0;
+        width: 13px;
+        height: 13px;
+        display: block;
+        border-top: 2px solid #777;
+        border-left: 2px solid #777;
+        border-radius: 1px;
+        box-sizing: border-box;
+        position: relative;
+        cursor: pointer;
+        transition: color .3s, border-color .3s;
+        &:hover {
+            border-color: #fff;
+            &::before {
+                border-color: #fff;
+            }
+        }
+        &::before {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border: 2px solid #777;
+            right: -4px;
+            bottom: -4px;
+            transition: border-color .3s;
+        }
+        &::after {
+            content: "";
+            padding: 10px;
+            font-size: 12px;
+            color: #fff;
+            line-height: 1;
+            word-break: keep-all;
+            white-space: nowrap;
+            text-align: center;
+            display: block;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba($color: #000, $alpha: .3);
+            background-color: #000;
+            position: fixed;
+            top: 5px;
+            right: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transition: top .3s, opacity .3s;
+        }
+        &.is-copied {
+            &::after {
+                content: "コピーしました！";
+                top: 8px;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        &.is-not-copied {
+            &::after {
+                content: "コピーするものがありません。";
+                top: 8px;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    &-download {
+        margin-top: 3px;
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-bottom: 2px solid;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        color: #777;
+        cursor: pointer;
+        transition: color .3s;
+        &:hover {
+            color: #fff;
+            &::before {
+                background-color: #fff;
+            }
+            &::after {
+                border-color: #fff;
+            }
+        }
+        &::before {
+            content: "";
+            width: 2px;
+            height: 10px;
+            display: block;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #777;
+            position: absolute;
+            left: 7px;
+            bottom: 5px;
+            transition: background-color .3s;
+        }
+        &::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            display: block;
+            border-left: 2px solid #777;
+            border-bottom: 2px solid #777;
+            box-sizing: border-box;
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+            transform: rotate(-45deg);
+            transition: border-color .3s;
+        }
+    }
 }

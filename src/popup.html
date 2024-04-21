@@ -1,33 +1,47 @@
 <!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/codemirror.css">
-    <link rel="stylesheet" href="./css/theme/vscode-dark.css">
-    <link rel="stylesheet" href="./css/addon/hint/show-hint.css">
-    <script src="./js/codemirror.min.js"></script>
-    <script src="./js/mode/css/css.js"></script>
-    <script src="./js/mode/sass/sass.js"></script>
-    <script src="./js/addon/hint/show-hint.js"></script>
-    <script src="./js/addon/hint/css-hint.js"></script>
-    <script src="./js/addon/edit/closebrackets.js"></script>
-    <script src="./js/sass.js"></script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/codemirror.css">
+  <link rel="stylesheet" href="./css/theme/vscode-dark.css">
+  <link rel="stylesheet" href="./css/addon/hint/show-hint.css">
+  <script src="./js/codemirror.min.js"></script>
+  <script src="./js/mode/css/css.js"></script>
+  <script src="./js/mode/sass/sass.js"></script>
+  <script src="./js/addon/hint/show-hint.js"></script>
+  <script src="./js/addon/hint/css-hint.js"></script>
+  <script src="./js/addon/hint/anyword-hint.js"></script>
+  <script src="./js/addon/edit/closebrackets.js"></script>
+  <script src="./js/sass.js"></script>
 </head>
-<body class="css-compiler">
-    <h2 class="css-compiler-title">SASS / SCSS</h2>
-    <textarea id="sass-input" class="css-compiler-textarea sass" placeholder="ここにSASSまたはSCSSコードを入力してください。"></textarea>
-    <button id="compile-button" class="css-compiler-button">コンパイル</button>
-    <h2 class="css-compiler-title">CSS</h2>
-    <textarea id="css-output" class="css-compiler-textarea css" placeholder="ここにコンパイル後のCSSが出力されます。"></textarea>
-    <div class="footer">
-        <span class="msg">
-            Auto save in local env... / Shortcut key: "Ctrl+Shift+Z"
-        </span>
-        <br />
-        <a href="#" id="close" class="round_btn"></a>
-        <a class="gg-software-download" href="#" id="download" download="CssCompiler.txt"></a>
+<body class="sass-compiler">
+  <div class="sass-compiler-cont">
+    <div class="sass-compiler-box sass">
+      <div class="sass-compiler-head">
+        <h2 class="sass-compiler-title">SASS / SCSS</h2>
+        <p class="sass-compiler-note">Compile Shortcut Key: 'Ctrl+Command+Z'</p>
+      </div>
+      <textarea id="sass-input" class="sass-compiler-textarea sass" placeholder="ここにSASSまたはSCSSコードを入力してください。"></textarea>
+      <div class="sass-compiler-foot">
+        <button id="compile-button" class="sass-compiler-button">コンパイル</button>
+        <div class="sass-compiler-upload">
+          <input type="file" id="js-upload-input" class="sass-compiler-upload-input" accept=".scss, .sass, .css">
+          <button id="js-upload-button" class="sass-compiler-upload-button">ファイルを選択</button>
+        </div>
+      </div>
     </div>
-    <script src="./js/popup.js"></script>
+    <div class="sass-compiler-box css">
+      <div class="sass-compiler-head">
+        <h2 class="sass-compiler-title">CSS</h2>
+      </div>
+      <textarea id="css-output" class="sass-compiler-textarea css" placeholder="ここにコンパイル後のCSSが出力されます。"></textarea>
+      <div class="sass-compiler-foot">
+        <div id="js-copy" class="sass-compiler-copy"></div>
+        <a href="#" download="compile.css" id="js-download" class="sass-compiler-download"></a>
+      </div>
+    </div>
+  </div>
+  <script src="./js/popup.js"></script>
 </body>
 </html>
