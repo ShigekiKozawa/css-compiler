@@ -1,5 +1,5 @@
 # Chrome Web Store URL
-* [CssCompiler]
+* [SassCompiler]
 
 # Explanation
 SASSまたはSCSSをCSSにコンパイルさせるためのGoogle拡張機能です。

@@ -5,13 +5,9 @@
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/codemirror.css">
   <link rel="stylesheet" href="./css/theme/vscode-dark.css">
-  <link rel="stylesheet" href="./css/addon/hint/show-hint.css">
   <script src="./js/codemirror.min.js"></script>
   <script src="./js/mode/css/css.js"></script>
   <script src="./js/mode/sass/sass.js"></script>
-  <script src="./js/addon/hint/show-hint.js"></script>
-  <script src="./js/addon/hint/css-hint.js"></script>
-  <script src="./js/addon/hint/anyword-hint.js"></script>
   <script src="./js/addon/edit/closebrackets.js"></script>
   <script src="./js/sass.js"></script>
 </head>
@@ -20,22 +16,34 @@
     <div class="sass-compiler-box sass">
       <div class="sass-compiler-head">
         <h2 class="sass-compiler-title">SASS / SCSS</h2>
-        <p class="sass-compiler-note">Compile Shortcut Key: 'Ctrl+Command+Z'</p>
+        <p class="sass-compiler-note">Compile Key: 'Ctrl+Command+Z'</p>
       </div>
-      <textarea id="sass-input" class="sass-compiler-textarea sass" placeholder="ここにSASSまたはSCSSコードを入力してください。"></textarea>
+      <textarea id="js-sass-input" class="sass-compiler-textarea sass" placeholder="SASS / SCSS"></textarea>
       <div class="sass-compiler-foot">
-        <button id="compile-button" class="sass-compiler-button">コンパイル</button>
+        <button id="js-compile-button" class="sass-compiler-button">Compile</button>
         <div class="sass-compiler-upload">
           <input type="file" id="js-upload-input" class="sass-compiler-upload-input" accept=".scss, .sass, .css">
-          <button id="js-upload-button" class="sass-compiler-upload-button">ファイルを選択</button>
+          <button id="js-upload-button" class="sass-compiler-upload-button">Import File</button>
         </div>
+        <div class="sass-compiler-style">
+          <p class="sass-compiler-style-text">Type：</p>
+          <div class="sass-compiler-style-select-wrap">
+            <select id="js-style-select" class="sass-compiler-style-select">
+              <option value="nested">Nested</option>
+              <option value="expanded">Expanded</option>
+              <option value="compact">Compact</option>
+              <option value="compressed" selected>Compressed</option>
+            </select>
+          </div>
+        </div>
+        <button id="js-clear-button" class="sass-compiler-clear-button">Clear</button>
       </div>
     </div>
     <div class="sass-compiler-box css">
       <div class="sass-compiler-head">
         <h2 class="sass-compiler-title">CSS</h2>
       </div>
-      <textarea id="css-output" class="sass-compiler-textarea css" placeholder="ここにコンパイル後のCSSが出力されます。"></textarea>
+      <textarea id="js-css-output" class="sass-compiler-textarea css" placeholder="Compiled CSS"></textarea>
       <div class="sass-compiler-foot">
         <div id="js-copy" class="sass-compiler-copy"></div>
         <a href="#" download="compile.css" id="js-download" class="sass-compiler-download"></a>
